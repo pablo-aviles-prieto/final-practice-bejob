@@ -23,12 +23,12 @@ class TODOError(Exception):
         """Return an error indicating an index out of range
         and whats the type being retrieved"""
         if max_index < 0:
-            return IndexError(f"ERROR! No {type_retrieved}s available.")
+            return IndexError(f"ERROR! No {type_retrieved.value}s available.")
         elif max_index == 0:
             return IndexError(
-                f"ERROR! There is only one {type_retrieved} available. Valid index: 0."
+                f"ERROR! There is only one {type_retrieved.value} available. Valid index: 0."
             )
         else:
             return IndexError(
-                f"ERROR! Index '{task_index}' is out of range. Valid {type_retrieved} indices: 0 to {max_index}."
+                f"ERROR! Index '{task_index}' is out of range. Valid {type_retrieved.value} indices: 0 to {max_index}."
             )

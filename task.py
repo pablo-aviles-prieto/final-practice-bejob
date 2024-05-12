@@ -26,10 +26,12 @@ class Task:
     # Display the tasks array in a readable format
     def display_tasks(self) -> None:
         if not self.tasks:
+            # TODO: throw error instead of print
             print("There are no tasks stored.")
         else:
+            print("Task list")
             for index, task in enumerate(self.tasks):
-                print(f"{index}. {task['name']} - {task['state'].value}")
+                print(f"{index + 1}. {task['name']} - {task['state'].value}")
 
     # Removes a task by his index
     def remove_task(self, task_index: int):
