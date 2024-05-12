@@ -14,13 +14,13 @@ class Task:
         # Throwing exception when the name of the task is duplicated
         if any(task["name"] == name for task in self.tasks):
             raise TODOError.duplicated_task(name)
-        self.tasks.append({"name": name, "state": state})
+        self.tasks.append({"name": name, "state": state.value})
         print(f"Task '{name}' ({state.value}) successfully added.")
 
     # Changes the task state, providing the index and the new state
     def change_task_state(self, task_index: int, new_state: TaskState):
         self.validate_task_index(task_index)
-        self.tasks[task_index]["state"] = new_state
+        self.tasks[task_index]["state"] = new_state.value
         print(f"Task '{self.tasks[task_index]["name"]}' changed his state to '{new_state.value}' successfully.")
 
     # Display the tasks array in a readable format
