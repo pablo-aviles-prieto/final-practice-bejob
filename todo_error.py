@@ -19,7 +19,9 @@ class TODOError(Exception):
         return TODOError(f"ERROR! Task '{task_name}' already exists.")
 
     @staticmethod
-    def wrong_index(type_retrieved: ErrorType, task_index: int, max_index: int):
+    def wrong_index(
+        type_retrieved: ErrorType, task_index: int, max_index: int, min_index: int = 0
+    ):
         """Return an error indicating an index out of range
         and whats the type being retrieved"""
         if max_index < 0:
@@ -30,5 +32,10 @@ class TODOError(Exception):
             )
         else:
             return IndexError(
-                f"ERROR! Index '{task_index}' is out of range. Valid {type_retrieved.value} indices: 0 to {max_index}."
+                f"ERROR! {type_retrieved.value} '{task_index}' is out of range. Valid {type_retrieved.value} range: {min_index} to {max_index}."
             )
+
+    @staticmethod
+    def no_tasks():
+        # Raise an error indicating that there are no tasks stored
+        return TODOError("There are no tasks stored.")

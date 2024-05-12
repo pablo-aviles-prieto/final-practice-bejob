@@ -15,30 +15,29 @@ class Task:
         if any(task["name"] == name for task in self.tasks):
             raise TODOError.duplicated_task(name)
         self.tasks.append({"name": name, "state": state.value})
-        print(f"Task '{name}' ({state.value}) successfully added.")
+        print(f"\nTask '{name}' ({state.value}) successfully added.")
 
     # Changes the task state, providing the index and the new state
     def change_task_state(self, task_index: int, new_state: TaskState):
         self.validate_task_index(task_index)
         self.tasks[task_index]["state"] = new_state.value
-        print(f"Task '{self.tasks[task_index]["name"]}' changed his state to '{new_state.value}' successfully.")
+        print(f"\nTask '{self.tasks[task_index]["name"]}' changed his state to '{new_state.value}' successfully.")
 
     # Display the tasks array in a readable format
     def display_tasks(self) -> None:
         if not self.tasks:
-            # TODO: throw error instead of print
-            print("There are no tasks stored.")
+            raise TODOError.no_tasks()
         else:
-            print("Task list")
+            print("\nTask list")
             for index, task in enumerate(self.tasks):
-                print(f"{index + 1}. {task['name']} - {task['state'].value}")
+                print(f"{index}. {task['name']} [{task['state']}]")
 
     # Removes a task by his index
     def remove_task(self, task_index: int):
         self.validate_task_index(task_index)
         task_name = self.tasks[task_index]["name"]  # Get the task name before removing it
         self.tasks.pop(task_index)
-        print(f"Task '{task_name}' successfully deleted.")
+        print(f"\nTask '{task_name}' successfully deleted.")
 
     # Validate the task index and raise an error if it's out of range.
     def validate_task_index(self, task_index: int):
