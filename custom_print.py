@@ -26,5 +26,6 @@ class CustomPrint:
     def header(self, message: str, color: str = PURPLE):
         print(f"{color}{self.BOLD}{message}{self.RESET}")
 
+    # The input has to be returned so it can be converted to int in case a number is passed in the str
     def input(self, message: str):
         return input(f"\n{self.YELLOW}{message}{self.RESET}")

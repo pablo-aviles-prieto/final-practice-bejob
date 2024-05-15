@@ -32,6 +32,7 @@ class Task:
         else:
             self.custom_print.header("\nTask list", self.custom_print.BLUE)
             for index, task in enumerate(self.tasks):
+                # TODO: set to uppercase the task.state
                 self.custom_print.info(f"{index}. {task['name']} [{task['state']}]")
 
     # Removes a task by his index
@@ -46,6 +47,6 @@ class Task:
         max_task_index = len(self.tasks) - 1
         if task_index < 0 or task_index > max_task_index:
             raise TODOError.wrong_index(ErrorType.TASK, task_index, max_task_index)
-        
+
     def total_tasks(self):
         return len(self.tasks)

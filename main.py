@@ -43,7 +43,7 @@ def main():
                 task.remove_task(selected_task)
 
             elif choice == 5:
-                custom_print.info("\nExiting the program.")
+                custom_print.info("\nExiting the program.\n")
                 break
 
             else:
