@@ -32,8 +32,8 @@ class Task:
         else:
             self.custom_print.header("\nTask list", self.custom_print.BLUE)
             for index, task in enumerate(self.tasks):
-                # TODO: set to uppercase the task.state
-                self.custom_print.info(f"{index}. {task['name']} [{task['state']}]")
+                state_upper = f"[{task['state']}]".upper()
+                self.custom_print.info(f"{index}. {task['name']} {state_upper}")
 
     # Removes a task by his index
     def remove_task(self, task_index: int):
