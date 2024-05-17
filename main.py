@@ -7,6 +7,9 @@ from custom_print import CustomPrint
 def main():
     task = Task()
     custom_print = CustomPrint()
+    custom_print.info("\n###########################")
+    custom_print.info("####### TASK MANAGER ######")
+    custom_print.info("###########################")
     while True:
         custom_print.header("\nTODO OPTIONS")
         options = [
@@ -20,7 +23,7 @@ def main():
             custom_print.option_list(f"{option}")
 
         try:
-            choice = int(custom_print.input("Enter your choice: "))
+            choice = int(custom_print.input("\nEnter your choice: "))
             if choice == 1:
                 name = custom_print.input("Enter task name: ")
                 task.add_task(name, TaskState.PENDING)

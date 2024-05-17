@@ -28,4 +28,4 @@ class CustomPrint:
 
     # The input has to be returned so it can be converted to int in case a number is passed in the str
     def input(self, message: str):
-        return input(f"\n{self.YELLOW}{message}{self.RESET}")
+        return input(f"{self.YELLOW}{message}{self.RESET}")
